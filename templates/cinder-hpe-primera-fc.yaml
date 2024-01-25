@@ -1,0 +1,31 @@
+parameter_defaults:
+  Debug: True
+  CinderEnableIscsiBackend: false
+  GlanceBackend: cinder
+  ControllerExtraConfig:
+    cinder::config::cinder_config:
+        primera_fc1/hpe3par_api_url:
+          value: https://<mgmet IP>/api/v1
+        primera_fc1/volume_driver:
+            value: cinder.volume.drivers.hpe.hpe_3par_fc.HPE3PARFCDriver
+        primera_fc1/hpe3par_username:
+            value: <username>
+        primera_fc1/hpe3par_password:
+            value: <password>
+        primera_fc1/hpe3par_cpg:
+            value: SSD_r6
+        primera_fc1/san_ip:
+            value: <mgmet IP>
+        primera_fc1/san_login:
+            value: <username>
+        primera_fc1/san_password:
+            value: <password>
+        primera_fc1/volume_backend_name:
+            value: primera_fc1
+        primera_fc1/backend_host:
+            value: hostgroup
+        primera_fc1/hpe3par_debug:
+            value: True
+
+    cinder_user_enabled_backends: ['primera_fc1']
+

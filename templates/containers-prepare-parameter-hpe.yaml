@@ -1,0 +1,60 @@
+# Generated with the following on 2023-09-21T20:52:11.745375
+#
+#   openstack tripleo container image prepare default --local-push-destination --output-env-file containers-prepare-parameter.yaml
+#
+
+parameter_defaults:
+  ContainerImagePrepare:
+  - push_destination: true
+    modify_role: tripleo-modify-image
+    modify_append_tag: ""
+    modify_only_with_source:
+    - kolla
+    - tripleo
+    modify_vars:
+      tasks_from: yum_update.yml
+      yum_repos_dir_path: /etc/yum.repos.d
+      yum_cache: /var/tmp/tripleo-container-image-prepare-cache
+      update_repo: "dummyrepo"
+      container_build_tool: buildah
+    excludes:
+      - cinder-volume
+
+    set:
+      ceph_alertmanager_image: ose-prometheus-alertmanager
+      ceph_alertmanager_namespace: registry.redhat.io/openshift4
+      ceph_alertmanager_tag: latest
+      ceph_grafana_image: rhceph-5-dashboard-rhel8
+      ceph_grafana_namespace: registry.redhat.io/rhceph
+      ceph_grafana_tag: latest
+      ceph_image: rhceph-5-rhel8
+      ceph_namespace: registry.redhat.io/rhceph
+      ceph_node_exporter_image: ose-prometheus-node-exporter
+      ceph_node_exporter_namespace: registry.redhat.io/openshift4
+      ceph_node_exporter_tag: v4.6
+      ceph_prometheus_image: ose-prometheus
+      ceph_prometheus_namespace: registry.redhat.io/openshift4
+      ceph_prometheus_tag: latest
+      ceph_tag: latest
+      name_prefix: openstack-
+      name_suffix: ''
+      namespace: registry.redhat.io/rhosp-rhel9
+      neutron_driver: ovn
+      rhel_containers: false
+      tag: '17.0'
+    tag_from_label: '{version}-{release}'
+  - push_destination: true
+    includes:
+      - cinder-volume
+    set:
+      name_prefix: openstack-
+      name_suffix: -hpe3parcinder17-0
+      namespace: registry.connect.redhat.com/hpe3parcinder
+      tag: '17.0.1-23-beta'
+
+  ContainerImageRegistryCredentials:
+    registry.redhat.io:
+      '3712761|SnehaRai': 'eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiIxYzQ0YWJkZGMyMzk0MmE1OTdlMjc5NzA2YTcwODdjMiJ9.nlS3z0ba6siMFh0dYJ3JzchK3u62crjCLI6g-nRWcDxzbkdBV9uSLEOWM3Lf6XYFLDoT2IIlNdVQnW7NopEKpvTBW-bVd2-InykBSGx-zYPIUFDjkNeka7aYSeN-BQ52dni8HJC8PPUBkWVaFkFNfbUVY4eRloiMDimCG-1Kx3EOZSFItpncICHQIP64ooJeb13fQropm5SGb7X7z1T6N3bIPBAT9sHA-LYHRWJ7ZcQqFouK69r2ssWiW6lipDVujKifv1H1EFQMUCKueMH6ALuKexzia7PeoKp_iHQDZ8obCNQArTEbDnt0b0bDzmcyPVY-qB2Cwcx3MY3I4HAOZt44Cp1pO--2x66SnqPz4D02p-5y_BWZ8INrWGLKaeq0gNRfJPlIYxEHbRqMxB2SNRMZzg-CTy-Qju5fadT1QPQuHNN2_QHnYNhuAr4-VCphK3ZMgiPUSE1C8cgIQ4gQHfHVyjCvbn7Uy_GEJIaD--Rmx8BqmAlSzpawIYxXggxU5nhBc55C2r516rwYVeNQ_bkFPUqtZJ0mV92iYQGBzt9IHSfWj18AVnTjSYSYqI0PMMDzlfsk-j7d1R_ehq-qFO28zrDo53gZomOzzJd5Gcq7vbOp1LQNHsjNCZyjvtLS5Ki44HtMwtzcbpe34FsCkR274PVcXCxc0GHrTy49Khs'
+    registry.connect.redhat.com:
+      '3712761|SnehaRai': 'eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiIxYzQ0YWJkZGMyMzk0MmE1OTdlMjc5NzA2YTcwODdjMiJ9.nlS3z0ba6siMFh0dYJ3JzchK3u62crjCLI6g-nRWcDxzbkdBV9uSLEOWM3Lf6XYFLDoT2IIlNdVQnW7NopEKpvTBW-bVd2-InykBSGx-zYPIUFDjkNeka7aYSeN-BQ52dni8HJC8PPUBkWVaFkFNfbUVY4eRloiMDimCG-1Kx3EOZSFItpncICHQIP64ooJeb13fQropm5SGb7X7z1T6N3bIPBAT9sHA-LYHRWJ7ZcQqFouK69r2ssWiW6lipDVujKifv1H1EFQMUCKueMH6ALuKexzia7PeoKp_iHQDZ8obCNQArTEbDnt0b0bDzmcyPVY-qB2Cwcx3MY3I4HAOZt44Cp1pO--2x66SnqPz4D02p-5y_BWZ8INrWGLKaeq0gNRfJPlIYxEHbRqMxB2SNRMZzg-CTy-Qju5fadT1QPQuHNN2_QHnYNhuAr4-VCphK3ZMgiPUSE1C8cgIQ4gQHfHVyjCvbn7Uy_GEJIaD--Rmx8BqmAlSzpawIYxXggxU5nhBc55C2r516rwYVeNQ_bkFPUqtZJ0mV92iYQGBzt9IHSfWj18AVnTjSYSYqI0PMMDzlfsk-j7d1R_ehq-qFO28zrDo53gZomOzzJd5Gcq7vbOp1LQNHsjNCZyjvtLS5Ki44HtMwtzcbpe34FsCkR274PVcXCxc0GHrTy49Khs'      
+   
