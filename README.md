@@ -7,9 +7,11 @@ It also contains steps to deploy & configure HPE 3PAR family backends for RHOSP1
 
 ## Prerequisites
 
-* Red Hat OpenStack Platform 17.1 with RHEL 9.
-
-* HPE 3PAR array 3.3.1 OR HPE Primera array 4.2 or higher.
+* Red Hat OpenStack Platform 17.1 with RHEL 9.2.
+* Array FW:
+  - HPE 3PAR array 3.3.1 or higher
+  - HPE Primera array 4.2 or higher
+  - HPE Alletra 9000 array 9.4 or higher
 
 ## Steps
 
