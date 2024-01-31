@@ -1,7 +1,6 @@
 parameter_defaults:
   Debug: True
   CinderEnableIscsiBackend: false
-  GlanceBackend: cinder
   ControllerExtraConfig:
     cinder::config::cinder_config:
         primera_fc1/hpe3par_api_url:
