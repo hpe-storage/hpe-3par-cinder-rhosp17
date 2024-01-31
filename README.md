@@ -31,9 +31,11 @@ openstack tripleo container image prepare default \
     --output-env-file containers-prepare-parameter-hpe.yaml
 ```
 
-Edit the containers-prepare-parameter-hpe.yaml file.
+Sample containers-prepare-parameter-hpe.yaml file is available in [templates](https://github.com/hpe-storage/hpe-3par-cinder-rhosp17/blob/master/templates) folder for reference.
 
-Sample file is available in [templates](https://github.com/hpe-storage/hpe-3par-cinder-rhosp17/blob/master/templates) folder for reference.
+Please generate a fresh containers-prepare-parameter.yaml file, and modify it as per deployment. 
+
+Kindly refer Red Hat documentation [here](https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/17.1/html-single/installing_and_managing_red_hat_openstack_platform_with_director/index#proc_deploying-a-vendor-plugin_preparing-for-director-installation)
 
 When director deploys the overcloud, the overcloud uses the HPE container image instead of the standard container image.
 
