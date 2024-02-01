@@ -6,17 +6,6 @@
 parameter_defaults:
   ContainerImagePrepare:
   - push_destination: true
-    modify_role: tripleo-modify-image
-    modify_append_tag: ""
-    modify_only_with_source:
-    - kolla
-    - tripleo
-    modify_vars:
-      tasks_from: yum_update.yml
-      yum_repos_dir_path: /etc/yum.repos.d
-      yum_cache: /var/tmp/tripleo-container-image-prepare-cache
-      update_repo: "dummyrepo"
-      container_build_tool: buildah
     excludes:
       - cinder-volume
 
@@ -41,16 +30,16 @@ parameter_defaults:
       namespace: registry.redhat.io/rhosp-rhel9
       neutron_driver: ovn
       rhel_containers: false
-      tag: '17.0'
+      tag: '17.1'
     tag_from_label: '{version}-{release}'
   - push_destination: true
     includes:
       - cinder-volume
     set:
       name_prefix: openstack-
-      name_suffix: -hpe3parcinder17-0
+      name_suffix: -hpe3parcinder17-1
       namespace: registry.connect.redhat.com/hpe3parcinder
-      tag: '17.1.1'
+      tag: '17.1'
 
   ContainerImageRegistryCredentials:
     registry.redhat.io:
