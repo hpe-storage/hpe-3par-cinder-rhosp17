@@ -35,6 +35,8 @@ Sample containers-prepare-parameter-hpe.yaml file is available in [templates](ht
 
 Please generate a fresh containers-prepare-parameter.yaml file, and modify it as per deployment. 
 
+In containers-prepare-parameter.yaml file, the overcloud tag and cinder-volume image tag are currently set to "17.1" which refers to the latest version. If customers want to deploy other versions, those values need to be changed to their desired choice. Both versions need to be the same value.
+
 Kindly refer Red Hat documentation [here](https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/17.1/html-single/installing_and_managing_red_hat_openstack_platform_with_director/index#proc_deploying-a-vendor-plugin_preparing-for-director-installation)
 
 When director deploys the overcloud, the overcloud uses the HPE container image instead of the standard container image.
